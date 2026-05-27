@@ -1,0 +1,9 @@
+Fahim Ashab - Resume Placeholder
+
+Replace this file with the final CV or resume asset you want visitors to download.
+
+Suggested replacement path:
+/public/resume.pdf
+
+If you replace the file name or format, update:
+src/data/portfolio.ts

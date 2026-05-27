@@ -1,0 +1,54 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f7f5f2;
+  --foreground: #1c1917;
+  --muted: #6b7280;
+  --card: rgba(255, 255, 255, 0.82);
+  --border: rgba(28, 25, 23, 0.1);
+  --accent: #2563eb;
+  --font-app-sans: "Aptos", "Segoe UI", "Helvetica Neue", sans-serif;
+  --font-app-mono: "IBM Plex Mono", "Cascadia Code", "Consolas", monospace;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-app-sans);
+  --font-mono: var(--font-app-mono);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-app-sans);
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: rgba(37, 99, 235, 0.14);
+}
+
+a,
+button {
+  transition:
+    color 150ms ease,
+    border-color 150ms ease,
+    background-color 150ms ease,
+    box-shadow 150ms ease,
+    transform 150ms ease;
+}
+
+.surface {
+  background: var(--card);
+  border: 1px solid var(--border);
+  backdrop-filter: blur(14px);
+}
+
+.section-divider {
+  border-top: 1px solid rgba(28, 25, 23, 0.08);
+}
