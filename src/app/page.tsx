@@ -6,56 +6,59 @@ import { SkillGroup } from "@/components/skill-group";
 import { portfolio } from "@/data/portfolio";
 
 const primaryButtonClass =
-  "inline-flex min-h-11 items-center justify-center rounded-full border border-stone-900 bg-stone-900 px-5 py-3 text-sm font-semibold text-stone-50 shadow-sm shadow-stone-900/10 hover:-translate-y-0.5 hover:bg-stone-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stone-900 focus-visible:ring-offset-2 focus-visible:ring-offset-stone-50";
+  "inline-flex min-h-11 items-center justify-center rounded-full border border-indigo-500/30 bg-gradient-to-r from-indigo-600 via-sky-500 to-cyan-500 px-5 py-3 text-sm font-semibold text-white shadow-[0_12px_30px_rgba(79,70,229,0.22)] hover:-translate-y-0.5 hover:shadow-[0_16px_36px_rgba(8,145,178,0.24)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-600 focus-visible:ring-offset-2 focus-visible:ring-offset-stone-50";
 
 const secondaryButtonClass =
-  "inline-flex min-h-11 items-center justify-center rounded-full border border-stone-300 bg-white/85 px-5 py-3 text-sm font-semibold text-stone-700 hover:-translate-y-0.5 hover:border-stone-400 hover:text-stone-950 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stone-900 focus-visible:ring-offset-2 focus-visible:ring-offset-stone-50";
+  "inline-flex min-h-11 items-center justify-center rounded-full border border-white/70 bg-white/75 px-5 py-3 text-sm font-semibold text-slate-700 shadow-[0_10px_24px_rgba(148,163,184,0.14)] hover:-translate-y-0.5 hover:border-indigo-200 hover:text-slate-950 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-600 focus-visible:ring-offset-2 focus-visible:ring-offset-stone-50";
 
 const inlineProfileLinkClass =
-  "inline-flex items-center gap-2 text-sm text-stone-600 underline-offset-4 hover:text-stone-950 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stone-900 focus-visible:ring-offset-2 focus-visible:ring-offset-stone-50";
+  "inline-flex items-center gap-2 text-sm font-medium text-slate-600 underline-offset-4 hover:text-indigo-700 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-600 focus-visible:ring-offset-2 focus-visible:ring-offset-stone-50";
 
 export default function Home() {
   return (
     <div className="relative overflow-hidden">
-      <div className="absolute inset-x-0 top-0 -z-10 h-[28rem] bg-[radial-gradient(circle_at_top,_rgba(59,130,246,0.08),_transparent_50%),linear-gradient(180deg,_rgba(255,255,255,0.92),_rgba(247,245,242,0))]" />
+      <div className="absolute inset-x-0 top-0 -z-10 h-[28rem] bg-[radial-gradient(circle_at_top_left,_rgba(79,70,229,0.16),_transparent_34%),radial-gradient(circle_at_top_right,_rgba(14,165,233,0.12),_transparent_30%),linear-gradient(180deg,_rgba(255,255,255,0.64),_rgba(244,243,248,0))]" />
 
-      <header className="sticky top-0 z-20 border-b border-stone-200/80 bg-stone-50/90 backdrop-blur">
-        <Container className="flex min-h-16 flex-col gap-4 py-4 sm:flex-row sm:items-center sm:justify-between">
-          <a
-            href="#home"
-            className="text-sm font-semibold tracking-[0.18em] text-stone-950 uppercase"
-          >
-            {portfolio.name}
-          </a>
+      <header className="sticky top-0 z-20 px-4 pt-4 sm:px-6 lg:px-8">
+        <Container className="px-0">
+          <div className="surface soft-ring flex min-h-[4.5rem] flex-col gap-5 rounded-[1.5rem] px-6 py-5 sm:min-h-[5.5rem] sm:flex-row sm:items-center sm:justify-between sm:px-8">
+            <a
+              href="#home"
+              className="text-base font-semibold tracking-[0.22em] text-slate-900 uppercase sm:text-lg"
+            >
+              {portfolio.name}
+            </a>
 
-          <nav aria-label="Primary" className="w-full sm:w-auto">
-            <ul className="flex flex-wrap items-center gap-4 text-sm text-stone-600 sm:justify-end sm:gap-6">
-              {portfolio.navigation.map((item) => (
-                <li key={item.href}>
-                  <a className="hover:text-stone-950" href={item.href}>
-                    {item.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </nav>
+            <nav aria-label="Primary" className="w-full sm:w-auto">
+              <ul className="flex flex-wrap items-center gap-4 text-[0.95rem] font-medium text-slate-600 sm:justify-end sm:gap-7">
+                {portfolio.navigation.map((item) => (
+                  <li key={item.href}>
+                    <a className="hover:text-indigo-700" href={item.href}>
+                      {item.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          </div>
         </Container>
       </header>
 
       <main id="home">
-        <section className="py-16 sm:py-20 lg:py-24">
+        <section className="py-14 sm:py-20 lg:py-24">
           <Container>
-            <div className="surface rounded-[2rem] p-8 sm:p-10 lg:p-12">
-              <div className="grid gap-10 lg:grid-cols-[minmax(0,1.5fr)_minmax(18rem,0.85fr)] lg:items-end">
-                <div className="space-y-8">
+            <div className="surface soft-ring relative overflow-hidden rounded-[2rem] p-8 sm:p-10 lg:p-12">
+              <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(79,70,229,0.06),transparent_40%,rgba(14,165,233,0.05)_72%)]" />
+              <div className="grid gap-8 lg:grid-cols-[minmax(0,1.45fr)_minmax(18rem,0.85fr)] lg:items-start">
+                <div className="relative space-y-8">
                   <div className="space-y-4">
-                    <p className="font-mono text-xs tracking-[0.24em] text-stone-500 uppercase">
+                    <p className="font-mono text-xs tracking-[0.24em] text-indigo-700 uppercase">
                       {portfolio.role}
                     </p>
-                    <h1 className="max-w-3xl text-4xl font-semibold tracking-tight text-stone-950 sm:text-5xl lg:text-6xl">
+                    <h1 className="max-w-3xl text-4xl font-semibold tracking-tight text-slate-950 sm:text-5xl lg:text-6xl">
                       {portfolio.positioning}
                     </h1>
-                    <p className="max-w-2xl text-base leading-8 text-stone-600 sm:text-lg">
+                    <p className="max-w-2xl text-base leading-8 text-slate-600 sm:text-lg">
                       {portfolio.intro}
                     </p>
                   </div>
@@ -80,7 +83,7 @@ export default function Home() {
                     ))}
                   </div>
 
-                  <div className="flex flex-wrap items-center gap-x-5 gap-y-3 border-t border-stone-200/80 pt-1">
+                  <div className="flex flex-wrap items-center gap-x-5 gap-y-3 border-t border-indigo-100/80 pt-3">
                     {portfolio.profileLinks.map((link) => (
                       <a
                         key={link.label}
@@ -97,14 +100,14 @@ export default function Home() {
                 </div>
 
                 <aside className="surface rounded-[1.5rem] p-6">
-                  <p className="font-mono text-xs tracking-[0.24em] text-stone-500 uppercase">
-                    Current Focus
+                  <p className="font-mono text-xs tracking-[0.24em] text-cyan-700 uppercase">
+                    Core Stack
                   </p>
-                  <ul className="mt-5 space-y-4 text-sm leading-7 text-stone-600">
+                  <ul className="mt-5 space-y-3 text-sm leading-7 text-slate-600">
                     {portfolio.highlights.map((highlight) => (
                       <li
                         key={highlight}
-                        className="border-b border-stone-200/80 pb-4 last:border-b-0 last:pb-0"
+                        className="rounded-2xl border border-slate-200/80 bg-white/70 px-4 py-3"
                       >
                         {highlight}
                       </li>
@@ -121,21 +124,21 @@ export default function Home() {
             <SectionHeading
               title="About"
               eyebrow="Profile"
-              description="A concise overview of the engineering work, product context, and cloud architecture focus behind the portfolio."
+              description="A simple overview of the kind of software work I do."
             />
 
             <div className="grid gap-6 lg:grid-cols-[minmax(0,1.4fr)_minmax(18rem,0.8fr)]">
               <article className="surface rounded-[1.75rem] p-8">
-                <p className="text-lg leading-8 text-stone-700">
+                <p className="text-lg leading-8 text-slate-700">
                   {portfolio.about}
                 </p>
               </article>
 
               <aside className="surface rounded-[1.75rem] p-8">
-                <p className="font-mono text-xs tracking-[0.24em] text-stone-500 uppercase">
-                  Core Areas
+                <p className="font-mono text-xs tracking-[0.24em] text-indigo-700 uppercase">
+                  What I Work On
                 </p>
-                <ul className="mt-5 space-y-3 text-sm leading-7 text-stone-600">
+                <ul className="mt-5 space-y-3 text-sm leading-7 text-slate-600">
                   {portfolio.coreAreas.map((area) => (
                     <li key={area}>{area}</li>
                   ))}
@@ -150,7 +153,7 @@ export default function Home() {
             <SectionHeading
               title="Skills"
               eyebrow="Toolkit"
-              description="Frontend, serverless cloud, and day-to-day engineering tools used to ship production-ready web applications."
+              description="Tools and technologies I use most often."
             />
 
             <div className="grid gap-6 lg:grid-cols-3">
@@ -164,9 +167,9 @@ export default function Home() {
         <section id="experience" className="section-divider py-16 sm:py-20">
           <Container>
             <SectionHeading
-              title="Experience"
+              title="Work"
               eyebrow="Work"
-              description="Recent engineering work centered on production systems, feature delivery, and debugging within an AWS serverless stack."
+              description="Recent product work across frontend delivery and AWS-backed systems."
             />
 
             <ExperienceCard experience={portfolio.experience} />
@@ -178,7 +181,7 @@ export default function Home() {
             <SectionHeading
               title="Projects"
               eyebrow="Selected Work"
-              description="Examples of product and platform work across cloud application flows, notification systems, and account management."
+              description="A few examples of the kinds of systems and features I have worked on."
             />
 
             <div className="grid gap-6 lg:grid-cols-3">
@@ -192,9 +195,9 @@ export default function Home() {
         <section id="publications" className="section-divider py-16 sm:py-20">
           <Container>
             <SectionHeading
-              title="Publications"
+              title="Research"
               eyebrow="Research"
-              description="Selected publication work and research profile links presented in the same restrained visual language as the rest of the portfolio."
+              description="Selected publication work and research profiles."
             />
 
             <div className="grid gap-6 lg:grid-cols-[minmax(0,1.35fr)_minmax(18rem,0.85fr)]">
@@ -204,17 +207,17 @@ export default function Home() {
                     key={publication.href}
                     className="surface rounded-[1.75rem] p-8"
                   >
-                    <p className="font-mono text-xs tracking-[0.24em] text-stone-500 uppercase">
+                    <p className="font-mono text-xs tracking-[0.24em] text-indigo-700 uppercase">
                       {publication.publisher}
                     </p>
-                    <h3 className="mt-3 text-2xl font-semibold text-stone-950">
+                    <h3 className="mt-3 text-2xl font-semibold text-slate-950">
                       {publication.title}
                     </h3>
-                    <p className="mt-4 max-w-3xl text-base leading-8 text-stone-600">
+                    <p className="mt-4 max-w-3xl text-base leading-8 text-slate-600">
                       {publication.description}
                     </p>
                     <a
-                      className="mt-6 inline-flex items-center rounded-full border border-stone-300 bg-white/85 px-4 py-2 text-sm font-semibold text-stone-700 hover:border-stone-400 hover:text-stone-950 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-stone-900 focus-visible:ring-offset-2 focus-visible:ring-offset-stone-50"
+                      className="mt-6 inline-flex items-center rounded-full border border-slate-300 bg-white/85 px-4 py-2 text-sm font-semibold text-slate-700 hover:border-slate-400 hover:text-slate-950 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-600 focus-visible:ring-offset-2 focus-visible:ring-offset-stone-50"
                       href={publication.href}
                       target="_blank"
                       rel="noopener noreferrer"
@@ -227,7 +230,7 @@ export default function Home() {
               </div>
 
               <aside className="surface rounded-[1.75rem] p-8">
-                <p className="font-mono text-xs tracking-[0.24em] text-stone-500 uppercase">
+                <p className="font-mono text-xs tracking-[0.24em] text-indigo-700 uppercase">
                   Research Profiles
                 </p>
                 <div className="mt-5 space-y-4">
@@ -238,12 +241,12 @@ export default function Home() {
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label={profile.ariaLabel}
-                      className="block rounded-2xl border border-stone-200 bg-white/80 px-5 py-4 text-sm text-stone-600 hover:border-stone-300 hover:text-stone-950"
+                      className="block rounded-2xl border border-slate-200 bg-white/80 px-5 py-4 text-sm text-slate-600 hover:border-slate-300 hover:text-slate-950"
                     >
-                      <span className="block font-mono text-[0.7rem] tracking-[0.24em] text-stone-400 uppercase">
+                      <span className="block font-mono text-[0.7rem] tracking-[0.24em] text-slate-400 uppercase">
                         {profile.label}
                       </span>
-                      <span className="mt-2 block text-base font-medium text-stone-900">
+                      <span className="mt-2 block text-base font-medium text-slate-900">
                         {profile.value}
                       </span>
                     </a>
@@ -260,7 +263,7 @@ export default function Home() {
               <SectionHeading
                 title="Contact"
                 eyebrow="Get In Touch"
-                description="The placeholder links below are centralized in the portfolio data file, so contact details and profile URLs stay easy to update."
+                description="The main ways to reach me and view my work."
               />
 
               <div className="grid gap-4 sm:grid-cols-2">
@@ -271,12 +274,12 @@ export default function Home() {
                     target={item.external ? "_blank" : undefined}
                     rel={item.external ? "noopener noreferrer" : undefined}
                     aria-label={item.ariaLabel}
-                    className="rounded-2xl border border-stone-200 bg-white/80 px-5 py-4 text-sm text-stone-600 hover:border-stone-300 hover:text-stone-950"
+                    className="rounded-2xl border border-slate-200 bg-white/80 px-5 py-4 text-sm text-slate-600 hover:border-slate-300 hover:text-slate-950"
                   >
-                    <span className="block font-mono text-[0.7rem] tracking-[0.24em] text-stone-400 uppercase">
+                    <span className="block font-mono text-[0.7rem] tracking-[0.24em] text-slate-400 uppercase">
                       {item.label}
                     </span>
-                    <span className="mt-2 block text-base font-medium text-stone-900">
+                    <span className="mt-2 block text-base font-medium text-slate-900">
                       {item.value}
                     </span>
                   </a>
@@ -288,13 +291,13 @@ export default function Home() {
       </main>
 
       <footer className="section-divider py-8">
-        <Container className="flex flex-col gap-4 text-sm text-stone-500 sm:flex-row sm:items-center sm:justify-between">
+        <Container className="flex flex-col gap-4 text-sm text-slate-500 sm:flex-row sm:items-center sm:justify-between">
           <p>{portfolio.footer}</p>
           <div className="flex flex-wrap items-center gap-4 sm:justify-end">
-            {portfolio.researchProfiles.map((profile) => (
+            {portfolio.profileLinks.map((profile) => (
               <a
                 key={profile.label}
-                className="hover:text-stone-900"
+                className="hover:text-indigo-700"
                 href={profile.href}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -303,7 +306,7 @@ export default function Home() {
                 {profile.label}
               </a>
             ))}
-            <a className="hover:text-stone-900" href="#home">
+            <a className="hover:text-indigo-700" href="#home">
               Back to top
             </a>
           </div>

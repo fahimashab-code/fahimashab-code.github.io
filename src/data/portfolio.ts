@@ -20,6 +20,7 @@ export type Experience = {
   title: string;
   location: string;
   description: string;
+  highlights: string[];
 };
 
 export type Project = {
@@ -59,17 +60,16 @@ export type Publication = {
 
 export const portfolio = {
   name: "Fahim Ashab",
-  role: "Full Stack Developer",
-  positioning:
-    "Full Stack Developer focused on Next.js, AWS Serverless, and cloud-based web applications.",
+  role: "Software Developer",
+  positioning: "Building web products with Next.js and AWS.",
   intro:
-    "I build modern web applications, serverless APIs, and cloud-based product features using Next.js, React, TypeScript, AWS Lambda, DynamoDB, Cognito, and API Gateway.",
+    "I build clean frontend experiences and cloud-backed product features using Next.js, React, TypeScript, AWS Lambda, DynamoDB, Cognito, and API Gateway.",
   navigation: [
     { label: "About", href: "#about" },
     { label: "Skills", href: "#skills" },
-    { label: "Experience", href: "#experience" },
+    { label: "Work", href: "#experience" },
     { label: "Projects", href: "#projects" },
-    { label: "Publications", href: "#publications" },
+    { label: "Research", href: "#publications" },
     { label: "Contact", href: "#contact" },
   ] satisfies NavItem[],
   heroActions: [
@@ -101,7 +101,7 @@ export const portfolio = {
     },
     {
       label: "LinkedIn",
-      href: "https://www.linkedin.com/in/ADD_LINKEDIN_URL_HERE",
+      href: "https://www.linkedin.com/in/fahim-ashab-8294b3213/?skipRedirect=true",
       ariaLabel: "Visit Fahim Ashab's LinkedIn profile",
     },
     {
@@ -116,17 +116,18 @@ export const portfolio = {
     },
   ] satisfies ProfileLink[],
   highlights: [
-    "Building production UI with Next.js, React, TypeScript, and Tailwind CSS.",
-    "Designing AWS serverless workflows with Lambda, DynamoDB, Cognito, and API Gateway.",
-    "Improving product reliability through debugging, performance work, and maintainable delivery.",
+    "Next.js and React frontend development",
+    "AWS Lambda and API Gateway integration",
+    "DynamoDB and Cognito-based product flows",
+    "Production debugging and feature delivery",
   ],
   about:
-    "I work across frontend engineering and full-stack product development, with a strong focus on production-grade cloud applications. My experience spans responsive user interfaces, serverless backend integration, AWS-based authentication and data flows, and shipping features that balance usability, maintainability, and operational reliability.",
+    "I work on product-facing web applications with a focus on frontend development, cloud integration, and day-to-day software delivery. Most of my recent work has involved building and improving Next.js applications, connecting them to AWS serverless services, and shipping production features that are clear, maintainable, and reliable.",
   coreAreas: [
-    "Frontend engineering for responsive product interfaces",
-    "Full-stack feature development across UI and serverless services",
-    "AWS serverless architecture and cloud application workflows",
-    "Production debugging, performance tuning, and iterative delivery",
+    "Frontend development with Next.js, React, and TypeScript",
+    "Serverless APIs and cloud workflows on AWS",
+    "Authentication, notifications, and admin-facing features",
+    "Performance work, debugging, and production support",
   ],
   skillGroups: [
     {
@@ -169,13 +170,18 @@ export const portfolio = {
     title: "Software Developer",
     location: "Remote",
     description:
-      "Worked on cloud-based web application features using Next.js, AWS Lambda, DynamoDB, Cognito, API Gateway, and SES. Contributed to authentication flows, notification systems, billing-related workflows, admin features, frontend performance, and production debugging.",
+      "Worked on cloud-based product features across the frontend and serverless backend, with a strong focus on usability, reliability, and maintainable delivery.",
+    highlights: [
+      "Built and improved features in Next.js applications used in production.",
+      "Worked with AWS Lambda, DynamoDB, Cognito, API Gateway, and SES.",
+      "Contributed to authentication, notifications, billing workflows, admin tools, and debugging.",
+    ],
   } satisfies Experience,
   projects: [
     {
       title: "Cloud Desktop Platform",
       description:
-        "Worked on frontend and serverless backend features for a cloud desktop platform, including authentication, billing-related workflows, notifications, admin tools, and user-facing cloud desktop flows.",
+        "Worked on user-facing and admin-side features for a cloud desktop platform, including authentication, billing flows, notifications, and core product interactions.",
       tech: [
         "Next.js",
         "React",
@@ -189,7 +195,7 @@ export const portfolio = {
     {
       title: "Notification & Email Template System",
       description:
-        "Built and improved notification and email workflows using AWS Lambda, DynamoDB, SES templates, and real-time notification logic.",
+        "Built notification and email flows with AWS services, covering template-based emails, real-time updates, and backend logic for product events.",
       tech: [
         "AWS Lambda",
         "SES",
@@ -202,7 +208,7 @@ export const portfolio = {
     {
       title: "Business Account Management System",
       description:
-        "Worked on business account separation, Cognito custom attributes, protected APIs, and business-specific cloud configuration flows.",
+        "Worked on business account separation, protected APIs, and cloud configuration flows designed for organization-specific access and setup.",
       tech: [
         "Next.js",
         "Cognito",
@@ -215,12 +221,12 @@ export const portfolio = {
   publications: [
     {
       title:
-        "IEEE Access Paper",
-      publisher: "IEEE Access",
+        "LLM-Enhanced Security Framework for IoT Network: Anomaly Detection and Malicious Devices Identification",
+      publisher: "IEEE Access · 2025",
       href: "https://ieeexplore.ieee.org/document/11175688",
       ariaLabel: "Read Fahim Ashab's IEEE Access publication on IEEE Xplore",
       description:
-        "Fahim Ashab is a co-author of this IEEE Access paper. The publication notes equal contribution between Mohammed Arif Iftakher Mahmood and Fahim Ashab.",
+        "Fahim Ashab is a co-author of this IEEE Access paper. The work focuses on IoT security, combining anomaly detection, device integrity assessment, and LLM-assisted explanations to help identify malicious devices and make results easier to interpret.",
     },
   ] satisfies Publication[],
   researchProfiles: [
@@ -252,8 +258,8 @@ export const portfolio = {
     },
     {
       label: "LinkedIn",
-      value: "linkedin.com/in/your-profile",
-      href: "https://www.linkedin.com/in/ADD_LINKEDIN_URL_HERE",
+      value: "linkedin.com/in/fahim-ashab-8294b3213",
+      href: "https://www.linkedin.com/in/fahim-ashab-8294b3213/?skipRedirect=true",
       external: true,
       ariaLabel: "Visit Fahim Ashab's LinkedIn profile",
     },
