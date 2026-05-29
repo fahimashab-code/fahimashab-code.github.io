@@ -11,6 +11,52 @@
   --accent-warm: #f59e0b;
   --font-app-sans: "Aptos", "Segoe UI", "Helvetica Neue", sans-serif;
   --font-app-mono: "IBM Plex Mono", "Cascadia Code", "Consolas", monospace;
+  --surface-base: #ffffff;
+  --surface-muted: rgba(255, 255, 255, 0.78);
+  --surface-panel: linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(255, 255, 255, 0.82));
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
+  --text-inverse: #ffffff;
+  --line-soft: rgba(99, 102, 241, 0.1);
+  --line-strong: rgba(100, 116, 139, 0.2);
+  --hero-overlay: linear-gradient(135deg, rgba(79, 70, 229, 0.06), transparent 40%, rgba(14, 165, 233, 0.05) 72%);
+  --hero-backdrop: radial-gradient(circle at top left, rgba(79, 70, 229, 0.16), transparent 34%), radial-gradient(circle at top right, rgba(14, 165, 233, 0.12), transparent 30%), linear-gradient(180deg, rgba(255, 255, 255, 0.64), rgba(244, 243, 248, 0));
+  --page-background: radial-gradient(circle at top left, rgba(79, 70, 229, 0.12), transparent 26%), radial-gradient(circle at top right, rgba(14, 165, 233, 0.12), transparent 24%), linear-gradient(180deg, #f8fbff 0%, #f4f3f8 55%, #f6f3ee 100%);
+  --surface-shadow: 0 10px 28px rgba(49, 46, 129, 0.05), inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  --ring-shadow: 0 0 0 1px rgba(255, 255, 255, 0.35), 0 14px 34px rgba(79, 70, 229, 0.08);
+  --button-secondary-bg: rgba(255, 255, 255, 0.78);
+  --button-secondary-shadow: 0 10px 24px rgba(148, 163, 184, 0.14);
+  --chip-background: rgba(255, 255, 255, 0.78);
+  --chip-gradient-skill: linear-gradient(to right, #ffffff, #f0f9ff);
+  --chip-gradient-project: linear-gradient(to right, #ffffff, #ecfeff);
+}
+
+html[data-theme="dark"] {
+  --background: #09090f;
+  --foreground: #edf2ff;
+  --muted: #a3aed0;
+  --card: rgba(15, 23, 42, 0.82);
+  --border: rgba(148, 163, 184, 0.18);
+  --surface-base: #0f172a;
+  --surface-muted: rgba(15, 23, 42, 0.82);
+  --surface-panel: linear-gradient(180deg, rgba(15, 23, 42, 0.92), rgba(15, 23, 42, 0.78));
+  --text-primary: #e5eefc;
+  --text-secondary: #bfccdf;
+  --text-muted: #94a3b8;
+  --text-inverse: #ffffff;
+  --line-soft: rgba(129, 140, 248, 0.16);
+  --line-strong: rgba(148, 163, 184, 0.24);
+  --hero-overlay: linear-gradient(135deg, rgba(79, 70, 229, 0.16), transparent 40%, rgba(14, 165, 233, 0.14) 72%);
+  --hero-backdrop: radial-gradient(circle at top left, rgba(79, 70, 229, 0.34), transparent 34%), radial-gradient(circle at top right, rgba(14, 165, 233, 0.22), transparent 30%), linear-gradient(180deg, rgba(15, 23, 42, 0.5), rgba(9, 9, 15, 0));
+  --page-background: radial-gradient(circle at top left, rgba(79, 70, 229, 0.18), transparent 26%), radial-gradient(circle at top right, rgba(14, 165, 233, 0.14), transparent 24%), linear-gradient(180deg, #111827 0%, #09090f 55%, #111827 100%);
+  --surface-shadow: 0 12px 30px rgba(2, 6, 23, 0.38), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  --ring-shadow: 0 0 0 1px rgba(148, 163, 184, 0.08), 0 18px 40px rgba(2, 6, 23, 0.38);
+  --button-secondary-bg: rgba(15, 23, 42, 0.9);
+  --button-secondary-shadow: 0 10px 24px rgba(2, 6, 23, 0.28);
+  --chip-background: rgba(15, 23, 42, 0.84);
+  --chip-gradient-skill: linear-gradient(to right, rgba(15, 23, 42, 0.88), rgba(12, 74, 110, 0.32));
+  --chip-gradient-project: linear-gradient(to right, rgba(15, 23, 42, 0.9), rgba(6, 95, 70, 0.28));
 }
 
 @theme inline {
@@ -25,10 +71,7 @@ html {
 }
 
 body {
-  background:
-    radial-gradient(circle at top left, rgba(79, 70, 229, 0.12), transparent 26%),
-    radial-gradient(circle at top right, rgba(14, 165, 233, 0.12), transparent 24%),
-    linear-gradient(180deg, #f8fbff 0%, #f4f3f8 55%, #f6f3ee 100%);
+  background: var(--page-background);
   color: var(--foreground);
   font-family: var(--font-app-sans);
   text-rendering: optimizeLegibility;
@@ -49,22 +92,16 @@ button {
 }
 
 .surface {
-  background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(255, 255, 255, 0.82)),
-    var(--card);
+  background: var(--surface-panel), var(--card);
   border: 1px solid var(--border);
   backdrop-filter: blur(10px);
-  box-shadow:
-    0 10px 28px rgba(49, 46, 129, 0.05),
-    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  box-shadow: var(--surface-shadow);
 }
 
 .section-divider {
-  border-top: 1px solid rgba(79, 70, 229, 0.08);
+  border-top: 1px solid var(--line-soft);
 }
 
 .soft-ring {
-  box-shadow:
-    0 0 0 1px rgba(255, 255, 255, 0.35),
-    0 14px 34px rgba(79, 70, 229, 0.08);
+  box-shadow: var(--ring-shadow);
 }

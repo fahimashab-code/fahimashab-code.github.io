@@ -3,43 +3,51 @@ import { ExperienceCard } from "@/components/experience-card";
 import { ProjectCard } from "@/components/project-card";
 import { SectionHeading } from "@/components/section-heading";
 import { SkillGroup } from "@/components/skill-group";
+import { ThemeToggle } from "@/components/theme-toggle";
 import { portfolio } from "@/data/portfolio";
 
 const primaryButtonClass =
-  "inline-flex min-h-11 items-center justify-center rounded-full border border-indigo-500/30 bg-gradient-to-r from-indigo-600 via-sky-500 to-cyan-500 px-5 py-3 text-sm font-semibold text-white shadow-[0_12px_30px_rgba(79,70,229,0.22)] hover:-translate-y-0.5 hover:shadow-[0_16px_36px_rgba(8,145,178,0.24)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-600 focus-visible:ring-offset-2 focus-visible:ring-offset-stone-50";
+  "inline-flex min-h-11 items-center justify-center rounded-full border border-indigo-500/30 bg-gradient-to-r from-indigo-600 via-sky-500 to-cyan-500 px-5 py-3 text-sm font-semibold text-[var(--text-inverse)] shadow-[0_12px_30px_rgba(79,70,229,0.22)] hover:-translate-y-0.5 hover:shadow-[0_16px_36px_rgba(8,145,178,0.24)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--surface-base)]";
 
 const secondaryButtonClass =
-  "inline-flex min-h-11 items-center justify-center rounded-full border border-white/70 bg-white/75 px-5 py-3 text-sm font-semibold text-slate-700 shadow-[0_10px_24px_rgba(148,163,184,0.14)] hover:-translate-y-0.5 hover:border-indigo-200 hover:text-slate-950 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-600 focus-visible:ring-offset-2 focus-visible:ring-offset-stone-50";
+  "inline-flex min-h-11 items-center justify-center rounded-full border border-[var(--line-strong)] bg-[var(--button-secondary-bg)] px-5 py-3 text-sm font-semibold text-[var(--text-primary)] shadow-[var(--button-secondary-shadow)] hover:-translate-y-0.5 hover:border-[var(--accent-soft)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--surface-base)]";
 
 const inlineProfileLinkClass =
-  "inline-flex items-center gap-2 text-sm font-medium text-slate-600 underline-offset-4 hover:text-indigo-700 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-600 focus-visible:ring-offset-2 focus-visible:ring-offset-stone-50";
+  "inline-flex items-center gap-2 text-sm font-medium text-[var(--text-secondary)] underline-offset-4 hover:text-[var(--accent)] hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--surface-base)]";
 
 export default function Home() {
   return (
     <div className="relative overflow-hidden">
-      <div className="absolute inset-x-0 top-0 -z-10 h-[28rem] bg-[radial-gradient(circle_at_top_left,_rgba(79,70,229,0.16),_transparent_34%),radial-gradient(circle_at_top_right,_rgba(14,165,233,0.12),_transparent_30%),linear-gradient(180deg,_rgba(255,255,255,0.64),_rgba(244,243,248,0))]" />
+      <div
+        className="absolute inset-x-0 top-0 -z-10 h-[28rem]"
+        style={{ background: "var(--hero-backdrop)" }}
+      />
 
       <header className="sticky top-0 z-20 px-4 pt-4 sm:px-6 lg:px-8">
         <Container className="px-0">
           <div className="surface soft-ring flex min-h-[4.5rem] flex-col gap-5 rounded-[1.5rem] px-6 py-5 sm:min-h-[5.5rem] sm:flex-row sm:items-center sm:justify-between sm:px-8">
-            <a
-              href="#home"
-              className="text-base font-semibold tracking-[0.22em] text-slate-900 uppercase sm:text-lg"
-            >
-              {portfolio.name}
-            </a>
+            <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:gap-8">
+              <a
+                href="#home"
+                className="text-base font-semibold tracking-[0.22em] text-[var(--text-primary)] uppercase sm:text-lg"
+              >
+                {portfolio.name}
+              </a>
 
-            <nav aria-label="Primary" className="w-full sm:w-auto">
-              <ul className="flex flex-wrap items-center gap-4 text-[0.95rem] font-medium text-slate-600 sm:justify-end sm:gap-7">
-                {portfolio.navigation.map((item) => (
-                  <li key={item.href}>
-                    <a className="hover:text-indigo-700" href={item.href}>
-                      {item.label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </nav>
+              <nav aria-label="Primary" className="w-full sm:w-auto">
+                <ul className="flex flex-wrap items-center gap-4 text-[0.95rem] font-medium text-[var(--text-secondary)] sm:justify-end sm:gap-7">
+                  {portfolio.navigation.map((item) => (
+                    <li key={item.href}>
+                      <a className="hover:text-[var(--accent)]" href={item.href}>
+                        {item.label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+            </div>
+
+            <ThemeToggle />
           </div>
         </Container>
       </header>
@@ -48,17 +56,20 @@ export default function Home() {
         <section className="py-14 sm:py-20 lg:py-24">
           <Container>
             <div className="surface soft-ring relative overflow-hidden rounded-[2rem] p-8 sm:p-10 lg:p-12">
-              <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(79,70,229,0.06),transparent_40%,rgba(14,165,233,0.05)_72%)]" />
+              <div
+                className="absolute inset-0"
+                style={{ background: "var(--hero-overlay)" }}
+              />
               <div className="grid gap-8 lg:grid-cols-[minmax(0,1.45fr)_minmax(18rem,0.85fr)] lg:items-start">
                 <div className="relative space-y-8">
                   <div className="space-y-4">
                     <p className="font-mono text-xs tracking-[0.24em] text-indigo-700 uppercase">
                       {portfolio.role}
                     </p>
-                    <h1 className="max-w-3xl text-4xl font-semibold tracking-tight text-slate-950 sm:text-5xl lg:text-6xl">
+                    <h1 className="max-w-3xl text-4xl font-semibold tracking-tight text-[var(--text-primary)] sm:text-5xl lg:text-6xl">
                       {portfolio.positioning}
                     </h1>
-                    <p className="max-w-2xl text-base leading-8 text-slate-600 sm:text-lg">
+                    <p className="max-w-2xl text-base leading-8 text-[var(--text-secondary)] sm:text-lg">
                       {portfolio.intro}
                     </p>
                   </div>
@@ -83,7 +94,7 @@ export default function Home() {
                     ))}
                   </div>
 
-                  <div className="flex flex-wrap items-center gap-x-5 gap-y-3 border-t border-indigo-100/80 pt-3">
+                  <div className="flex flex-wrap items-center gap-x-5 gap-y-3 border-t border-[var(--line-soft)] pt-3">
                     {portfolio.profileLinks.map((link) => (
                       <a
                         key={link.label}
@@ -103,11 +114,11 @@ export default function Home() {
                   <p className="font-mono text-xs tracking-[0.24em] text-cyan-700 uppercase">
                     Core Stack
                   </p>
-                  <ul className="mt-5 space-y-3 text-sm leading-7 text-slate-600">
+                  <ul className="mt-5 space-y-3 text-sm leading-7 text-[var(--text-secondary)]">
                     {portfolio.highlights.map((highlight) => (
                       <li
                         key={highlight}
-                        className="rounded-2xl border border-slate-200/80 bg-white/70 px-4 py-3"
+                        className="rounded-2xl border border-[var(--line-strong)] bg-[var(--chip-background)] px-4 py-3"
                       >
                         {highlight}
                       </li>
@@ -129,7 +140,7 @@ export default function Home() {
 
             <div className="grid gap-6 lg:grid-cols-[minmax(0,1.4fr)_minmax(18rem,0.8fr)]">
               <article className="surface rounded-[1.75rem] p-8">
-                <p className="text-lg leading-8 text-slate-700">
+                <p className="text-lg leading-8 text-[var(--text-secondary)]">
                   {portfolio.about}
                 </p>
               </article>
@@ -138,7 +149,7 @@ export default function Home() {
                 <p className="font-mono text-xs tracking-[0.24em] text-indigo-700 uppercase">
                   What I Work On
                 </p>
-                <ul className="mt-5 space-y-3 text-sm leading-7 text-slate-600">
+                <ul className="mt-5 space-y-3 text-sm leading-7 text-[var(--text-secondary)]">
                   {portfolio.coreAreas.map((area) => (
                     <li key={area}>{area}</li>
                   ))}
@@ -210,14 +221,14 @@ export default function Home() {
                     <p className="font-mono text-xs tracking-[0.24em] text-indigo-700 uppercase">
                       {publication.publisher}
                     </p>
-                    <h3 className="mt-3 text-2xl font-semibold text-slate-950">
+                    <h3 className="mt-3 text-2xl font-semibold text-[var(--text-primary)]">
                       {publication.title}
                     </h3>
-                    <p className="mt-4 max-w-3xl text-base leading-8 text-slate-600">
+                    <p className="mt-4 max-w-3xl text-base leading-8 text-[var(--text-secondary)]">
                       {publication.description}
                     </p>
                     <a
-                      className="mt-6 inline-flex items-center rounded-full border border-slate-300 bg-white/85 px-4 py-2 text-sm font-semibold text-slate-700 hover:border-slate-400 hover:text-slate-950 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-600 focus-visible:ring-offset-2 focus-visible:ring-offset-stone-50"
+                      className="mt-6 inline-flex items-center rounded-full border border-[var(--line-strong)] bg-[var(--button-secondary-bg)] px-4 py-2 text-sm font-semibold text-[var(--text-primary)] hover:border-[var(--accent-soft)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--surface-base)]"
                       href={publication.href}
                       target="_blank"
                       rel="noopener noreferrer"
@@ -241,12 +252,12 @@ export default function Home() {
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label={profile.ariaLabel}
-                      className="block rounded-2xl border border-slate-200 bg-white/80 px-5 py-4 text-sm text-slate-600 hover:border-slate-300 hover:text-slate-950"
+                      className="block rounded-2xl border border-[var(--line-strong)] bg-[var(--chip-background)] px-5 py-4 text-sm text-[var(--text-secondary)] hover:border-[var(--accent-soft)] hover:text-[var(--text-primary)]"
                     >
-                      <span className="block font-mono text-[0.7rem] tracking-[0.24em] text-slate-400 uppercase">
+                      <span className="block font-mono text-[0.7rem] tracking-[0.24em] text-[var(--text-muted)] uppercase">
                         {profile.label}
                       </span>
-                      <span className="mt-2 block text-base font-medium text-slate-900">
+                      <span className="mt-2 block text-base font-medium text-[var(--text-primary)]">
                         {profile.value}
                       </span>
                     </a>
@@ -274,12 +285,12 @@ export default function Home() {
                     target={item.external ? "_blank" : undefined}
                     rel={item.external ? "noopener noreferrer" : undefined}
                     aria-label={item.ariaLabel}
-                    className="rounded-2xl border border-slate-200 bg-white/80 px-5 py-4 text-sm text-slate-600 hover:border-slate-300 hover:text-slate-950"
+                    className="rounded-2xl border border-[var(--line-strong)] bg-[var(--chip-background)] px-5 py-4 text-sm text-[var(--text-secondary)] hover:border-[var(--accent-soft)] hover:text-[var(--text-primary)]"
                   >
-                    <span className="block font-mono text-[0.7rem] tracking-[0.24em] text-slate-400 uppercase">
+                    <span className="block font-mono text-[0.7rem] tracking-[0.24em] text-[var(--text-muted)] uppercase">
                       {item.label}
                     </span>
-                    <span className="mt-2 block text-base font-medium text-slate-900">
+                    <span className="mt-2 block text-base font-medium text-[var(--text-primary)]">
                       {item.value}
                     </span>
                   </a>
@@ -291,13 +302,13 @@ export default function Home() {
       </main>
 
       <footer className="section-divider py-8">
-        <Container className="flex flex-col gap-4 text-sm text-slate-500 sm:flex-row sm:items-center sm:justify-between">
+        <Container className="flex flex-col gap-4 text-sm text-[var(--text-muted)] sm:flex-row sm:items-center sm:justify-between">
           <p>{portfolio.footer}</p>
           <div className="flex flex-wrap items-center gap-4 sm:justify-end">
             {portfolio.profileLinks.map((profile) => (
               <a
                 key={profile.label}
-                className="hover:text-indigo-700"
+                className="hover:text-[var(--accent)]"
                 href={profile.href}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -306,7 +317,7 @@ export default function Home() {
                 {profile.label}
               </a>
             ))}
-            <a className="hover:text-indigo-700" href="#home">
+            <a className="hover:text-[var(--accent)]" href="#home">
               Back to top
             </a>
           </div>
