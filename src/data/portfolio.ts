@@ -142,7 +142,7 @@ export const portfolio = {
     "Chattogram, Bangladesh",
   ],
   about:
-    "Electrical and Electronic Engineering graduate with practical experience in software, cloud-connected systems, and product-focused development. I am most comfortable working on web applications, AWS services, technical problem solving, documentation, and cross-functional delivery. My recent work has focused on building software that connects users, devices, and cloud workflows in a way that is reliable and easy to maintain.",
+    "Electrical and Electronic Engineering graduate with practical experience in software, cloud-connected systems, and product-focused development. I am most comfortable working on web applications, AWS services, technical problem solving and cross-functional delivery. My recent work has focused on building software that connects users, devices, and cloud workflows in a way that is reliable and easy to maintain.",
   coreAreas: [
     "Product-facing web application development",
     "AWS serverless and cloud operations support",
@@ -302,7 +302,7 @@ export const portfolio = {
       href: "https://ieeexplore.ieee.org/document/11175688",
       ariaLabel: "Read Fahim Ashab's IEEE Access publication on IEEE Xplore",
       description:
-        "Fahim Ashab is a co-author of this IEEE Access paper. The work focuses on IoT security by combining anomaly detection, malicious device identification, and LLM-assisted explanations.",
+        "First Co-author of this IEEE Access paper. The work focuses on IoT security by combining anomaly detection, malicious device identification, and LLM-assisted explanations.",
       details: [
         "Captured real IoT network traffic through an OpenWrt-based router and transferred packet data for analysis.",
         "Processed PCAP traffic into structured features using Python tools such as Scapy and dpkt.",
