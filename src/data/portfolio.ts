@@ -18,9 +18,20 @@ export type SkillGroup = {
 
 export type Experience = {
   title: string;
+  organization: string;
+  period: string;
   location: string;
   description: string;
   highlights: string[];
+};
+
+export type Education = {
+  degree: string;
+  institution: string;
+  location: string;
+  period: string;
+  result: string;
+  focus: string;
 };
 
 export type Project = {
@@ -56,16 +67,25 @@ export type Publication = {
   href: string;
   ariaLabel: string;
   description: string;
+  details: string[];
+};
+
+export type ResearchProject = {
+  title: string;
+  description: string;
+  highlights: string[];
 };
 
 export const portfolio = {
   name: "Fahim Ashab",
-  role: "Software Developer",
-  positioning: "Building web products with Next.js and AWS.",
+  role: "Software Developer - AWS Cloud Engineer",
+  positioning:
+    "Software Developer with an Electrical and Electronic Engineering background.",
   intro:
-    "I build clean frontend experiences and cloud-backed product features using Next.js, React, TypeScript, AWS Lambda, DynamoDB, Cognito, and API Gateway.",
+    "I work on Next.js applications, AWS-backed product features, and cloud-connected systems across frontend development, serverless APIs, authentication, notifications, and IoT-oriented workflows.",
   navigation: [
     { label: "About", href: "#about" },
+    { label: "Education", href: "#education" },
     { label: "Skills", href: "#skills" },
     { label: "Work", href: "#experience" },
     { label: "Projects", href: "#projects" },
@@ -116,19 +136,38 @@ export const portfolio = {
     },
   ] satisfies ProfileLink[],
   highlights: [
-    "Next.js and React frontend development",
-    "AWS Lambda and API Gateway integration",
-    "DynamoDB and Cognito-based product flows",
-    "Production debugging and feature delivery",
+    "Next.js, React, and TypeScript product development",
+    "AWS Lambda, API Gateway, DynamoDB, and Cognito",
+    "IoT and cloud-connected product systems",
+    "Chattogram, Bangladesh",
   ],
   about:
-    "I work on product-facing web applications with a focus on frontend development, cloud integration, and day-to-day software delivery. Most of my recent work has involved building and improving Next.js applications, connecting them to AWS serverless services, and shipping production features that are clear, maintainable, and reliable.",
+    "Electrical and Electronic Engineering graduate with practical experience in software, cloud-connected systems, and product-focused development. I am most comfortable working on web applications, AWS services, technical problem solving, documentation, and cross-functional delivery. My recent work has focused on building software that connects users, devices, and cloud workflows in a way that is reliable and easy to maintain.",
   coreAreas: [
-    "Frontend development with Next.js, React, and TypeScript",
-    "Serverless APIs and cloud workflows on AWS",
-    "Authentication, notifications, and admin-facing features",
-    "Performance work, debugging, and production support",
+    "Product-facing web application development",
+    "AWS serverless and cloud operations support",
+    "IoT and device-to-cloud integration",
+    "Technical documentation and cross-functional teamwork",
   ],
+  education: [
+    {
+      degree: "MS in Electrical and Electronic Engineering",
+      institution: "University of Chittagong",
+      location: "Chattogram, Bangladesh",
+      period: "September 2023 - March 2025",
+      result: "CGPA: 3.39 / 4.00",
+      focus:
+        "Thesis: LLM-Enhanced Security Framework for IoT Network: Anomaly Detection and Malicious Devices Identification",
+    },
+    {
+      degree: "BSc in Electrical and Electronic Engineering",
+      institution: "University of Chittagong",
+      location: "Chattogram, Bangladesh",
+      period: "January 2018 - May 2023",
+      result: "CGPA: 3.18 / 4.00",
+      focus: "Project: Inventory Monitoring App for Coffee Distributor",
+    },
+  ] satisfies Education[],
   skillGroups: [
     {
       title: "Frontend",
@@ -138,50 +177,87 @@ export const portfolio = {
         "TypeScript",
         "Tailwind CSS",
         "Responsive UI",
-        "Performance Optimization",
+        "Frontend Implementation",
       ],
     },
     {
-      title: "Backend & Cloud",
+      title: "Cloud & Backend",
       skills: [
         "AWS Lambda",
         "API Gateway",
         "DynamoDB",
         "Cognito",
+        "AWS IoT Core",
         "SES",
         "S3",
         "CloudWatch",
+        "EventBridge",
+        "EC2",
         "IAM",
       ],
     },
     {
-      title: "Tools",
+      title: "Data, IoT & Engineering",
+      skills: [
+        "Python",
+        "OpenWrt",
+        "Scapy",
+        "dpkt",
+        "scikit-learn",
+        "InfluxDB",
+        "Amazon Timestream",
+        "MATLAB",
+      ],
+    },
+    {
+      title: "Workflow & Tools",
       skills: [
         "Git",
         "Bitbucket",
         "Postman",
         "Jira",
-        "Cloudflare Tunnel",
+        "Confluence",
+        "Slack",
+        "Figma",
         "VS Code",
       ],
     },
   ] satisfies SkillGroup[],
-  experience: {
-    title: "Software Developer",
-    location: "Remote",
-    description:
-      "Worked on cloud-based product features across the frontend and serverless backend, with a strong focus on usability, reliability, and maintainable delivery.",
-    highlights: [
-      "Built and improved features in Next.js applications used in production.",
-      "Worked with AWS Lambda, DynamoDB, Cognito, API Gateway, and SES.",
-      "Contributed to authentication, notifications, billing workflows, admin tools, and debugging.",
-    ],
-  } satisfies Experience,
+  experiences: [
+    {
+      title: "Remote Cloud Developer / Backend Developer",
+      organization: "SenseMinder LLC",
+      period: "April 2025 - Present",
+      location: "Remote",
+      description:
+        "Working on production software systems that connect users, cloud desktop workflows, and backend services across a cloud-based product environment.",
+      highlights: [
+        "Built and improved features in Next.js applications for user-facing and admin workflows.",
+        "Worked on AWS Cognito-based authentication, internal user management, and protected product flows.",
+        "Implemented notification features with AWS Lambda and SES templates, along with billing and promotional balance related work.",
+        "Supported AWS DCV, EventBridge scheduling, file management, QA collaboration, and production debugging.",
+      ],
+    },
+    {
+      title: "Freelance IoT & Cloud Developer",
+      organization: "Fiverr",
+      period: "2024 - Present",
+      location: "Remote",
+      description:
+        "Built small-scale device-to-cloud and monitoring solutions for clients, focused on practical data visibility, automation, and software integration.",
+      highlights: [
+        "Integrated sensor and machine data with AWS IoT Core and related cloud services.",
+        "Created monitoring and visualization flows to make live device data easier to track and understand.",
+        "Worked on cloud-backed automation and troubleshooting for IoT-oriented client projects.",
+        "Translated practical client requirements into simple software and cloud workflows.",
+      ],
+    },
+  ] satisfies Experience[],
   projects: [
     {
       title: "Cloud Desktop Platform",
       description:
-        "Worked on user-facing and admin-side features for a cloud desktop platform, including authentication, billing flows, notifications, and core product interactions.",
+        "Worked on a cloud desktop product covering authentication, billing-related workflows, notifications, internal tools, and user-facing desktop flows.",
       tech: [
         "Next.js",
         "React",
@@ -195,7 +271,7 @@ export const portfolio = {
     {
       title: "Notification & Email Template System",
       description:
-        "Built notification and email flows with AWS services, covering template-based emails, real-time updates, and backend logic for product events.",
+        "Built notification and email workflows with AWS services, including SES templates, backend event handling, and real-time product notifications.",
       tech: [
         "AWS Lambda",
         "SES",
@@ -208,7 +284,7 @@ export const portfolio = {
     {
       title: "Business Account Management System",
       description:
-        "Worked on business account separation, protected APIs, and cloud configuration flows designed for organization-specific access and setup.",
+        "Worked on account separation, protected APIs, and business-specific cloud configuration flows for organization-focused product access.",
       tech: [
         "Next.js",
         "Cognito",
@@ -222,13 +298,32 @@ export const portfolio = {
     {
       title:
         "LLM-Enhanced Security Framework for IoT Network: Anomaly Detection and Malicious Devices Identification",
-      publisher: "IEEE Access · 2025",
+      publisher: "IEEE Access - 2025",
       href: "https://ieeexplore.ieee.org/document/11175688",
       ariaLabel: "Read Fahim Ashab's IEEE Access publication on IEEE Xplore",
       description:
-        "Fahim Ashab is a co-author of this IEEE Access paper. The work focuses on IoT security, combining anomaly detection, device integrity assessment, and LLM-assisted explanations to help identify malicious devices and make results easier to interpret.",
+        "Fahim Ashab is a co-author of this IEEE Access paper. The work focuses on IoT security by combining anomaly detection, malicious device identification, and LLM-assisted explanations.",
+      details: [
+        "Captured real IoT network traffic through an OpenWrt-based router and transferred packet data for analysis.",
+        "Processed PCAP traffic into structured features using Python tools such as Scapy and dpkt.",
+        "Applied Isolation Forest for anomaly detection and Random Forest for malicious device identification.",
+        "Integrated GPT-4o mini to generate statistical summaries, risk-aware insights, and human-readable explanations.",
+        "The paper notes equal contribution between Mohammed Arif Iftakher Mahmood and Fahim Ashab.",
+      ],
     },
   ] satisfies Publication[],
+  researchProjects: [
+    {
+      title: "Device-to-Cloud Monitoring and Visualization System",
+      description:
+        "Built a monitoring-oriented academic project focused on collecting, processing, and visualizing real-time device or machine data through cloud-connected workflows.",
+      highlights: [
+        "Integrated sensor and machine data with cloud services for real-time monitoring.",
+        "Created dashboards and monitoring flows to track device status and alerts.",
+        "Organized cloud-based data views to support troubleshooting and operational decisions.",
+      ],
+    },
+  ] satisfies ResearchProject[],
   researchProfiles: [
     {
       label: "ORCID iD",
@@ -246,8 +341,13 @@ export const portfolio = {
   contactLinks: [
     {
       label: "Email",
-      value: "hello@example.com",
-      href: "mailto:hello@example.com",
+      value: "fahim.ashab.eee@gmail.com",
+      href: "mailto:fahim.ashab.eee@gmail.com",
+    },
+    {
+      label: "Phone",
+      value: "+880 1334-859278",
+      href: "tel:+8801334859278",
     },
     {
       label: "GitHub",
@@ -263,11 +363,6 @@ export const portfolio = {
       external: true,
       ariaLabel: "Visit Fahim Ashab's LinkedIn profile",
     },
-    {
-      label: "Resume / CV",
-      value: "/resume.txt",
-      href: "/resume.txt",
-    },
   ] satisfies ContactLink[],
-  footer: "Fahim Ashab. Built with Next.js, TypeScript, and Tailwind CSS.",
+  footer: "Fahim Ashab - Software Developer portfolio.",
 };

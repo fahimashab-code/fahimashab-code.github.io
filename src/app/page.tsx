@@ -1,9 +1,9 @@
 import { Container } from "@/components/container";
+import { EducationCard } from "@/components/education-card";
 import { ExperienceCard } from "@/components/experience-card";
 import { ProjectCard } from "@/components/project-card";
 import { SectionHeading } from "@/components/section-heading";
 import { SkillGroup } from "@/components/skill-group";
-import { ThemeToggle } from "@/components/theme-toggle";
 import { portfolio } from "@/data/portfolio";
 
 const primaryButtonClass =
@@ -26,7 +26,7 @@ export default function Home() {
       <header className="sticky top-0 z-20 px-4 pt-4 sm:px-6 lg:px-8">
         <Container className="px-0">
           <div className="surface soft-ring flex min-h-[4.5rem] flex-col gap-5 rounded-[1.5rem] px-6 py-5 sm:min-h-[5.5rem] sm:flex-row sm:items-center sm:justify-between sm:px-8">
-            <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:gap-8">
+            <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between sm:gap-8 sm:w-full">
               <a
                 href="#home"
                 className="text-base font-semibold tracking-[0.22em] text-[var(--text-primary)] uppercase sm:text-lg"
@@ -46,8 +46,6 @@ export default function Home() {
                 </ul>
               </nav>
             </div>
-
-            <ThemeToggle />
           </div>
         </Container>
       </header>
@@ -63,7 +61,7 @@ export default function Home() {
               <div className="grid gap-8 lg:grid-cols-[minmax(0,1.45fr)_minmax(18rem,0.85fr)] lg:items-start">
                 <div className="relative space-y-8">
                   <div className="space-y-4">
-                    <p className="font-mono text-xs tracking-[0.24em] text-indigo-700 uppercase">
+                    <p className="text-sm font-semibold tracking-[0.18em] text-slate-950 uppercase sm:text-base">
                       {portfolio.role}
                     </p>
                     <h1 className="max-w-3xl text-4xl font-semibold tracking-tight text-[var(--text-primary)] sm:text-5xl lg:text-6xl">
@@ -112,7 +110,7 @@ export default function Home() {
 
                 <aside className="surface rounded-[1.5rem] p-6">
                   <p className="font-mono text-xs tracking-[0.24em] text-cyan-700 uppercase">
-                    Core Stack
+                    At a Glance
                   </p>
                   <ul className="mt-5 space-y-3 text-sm leading-7 text-[var(--text-secondary)]">
                     {portfolio.highlights.map((highlight) => (
@@ -159,6 +157,22 @@ export default function Home() {
           </Container>
         </section>
 
+        <section id="education" className="section-divider py-16 sm:py-20">
+          <Container>
+            <SectionHeading
+              title="Education"
+              eyebrow="Academic Background"
+              description="Formal academic training that supports my software, cloud, and research-oriented work."
+            />
+
+            <div className="grid gap-6 lg:grid-cols-2">
+              {portfolio.education.map((item) => (
+                <EducationCard key={item.degree} education={item} />
+              ))}
+            </div>
+          </Container>
+        </section>
+
         <section id="skills" className="section-divider py-16 sm:py-20">
           <Container>
             <SectionHeading
@@ -183,7 +197,14 @@ export default function Home() {
               description="Recent product work across frontend delivery and AWS-backed systems."
             />
 
-            <ExperienceCard experience={portfolio.experience} />
+            <div className="space-y-6">
+              {portfolio.experiences.map((experience) => (
+                <ExperienceCard
+                  key={`${experience.organization}-${experience.title}`}
+                  experience={experience}
+                />
+              ))}
+            </div>
           </Container>
         </section>
 
@@ -227,6 +248,16 @@ export default function Home() {
                     <p className="mt-4 max-w-3xl text-base leading-8 text-[var(--text-secondary)]">
                       {publication.description}
                     </p>
+                    <ul className="mt-6 space-y-3 text-sm leading-7 text-[var(--text-secondary)]">
+                      {publication.details.map((detail) => (
+                        <li
+                          key={detail}
+                          className="rounded-2xl border border-[var(--line-strong)] bg-[var(--chip-background)] px-4 py-3"
+                        >
+                          {detail}
+                        </li>
+                      ))}
+                    </ul>
                     <a
                       className="mt-6 inline-flex items-center rounded-full border border-[var(--line-strong)] bg-[var(--button-secondary-bg)] px-4 py-2 text-sm font-semibold text-[var(--text-primary)] hover:border-[var(--accent-soft)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--accent)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--surface-base)]"
                       href={publication.href}
@@ -236,6 +267,33 @@ export default function Home() {
                     >
                       View on IEEE Xplore
                     </a>
+                  </article>
+                ))}
+
+                {portfolio.researchProjects.map((project) => (
+                  <article
+                    key={project.title}
+                    className="surface rounded-[1.75rem] p-8"
+                  >
+                    <p className="font-mono text-xs tracking-[0.24em] text-cyan-700 uppercase">
+                      Academic Project
+                    </p>
+                    <h3 className="mt-3 text-2xl font-semibold text-[var(--text-primary)]">
+                      {project.title}
+                    </h3>
+                    <p className="mt-4 text-base leading-8 text-[var(--text-secondary)]">
+                      {project.description}
+                    </p>
+                    <ul className="mt-6 space-y-3 text-sm leading-7 text-[var(--text-secondary)]">
+                      {project.highlights.map((item) => (
+                        <li
+                          key={item}
+                          className="rounded-2xl border border-[var(--line-strong)] bg-[var(--chip-background)] px-4 py-3"
+                        >
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
                   </article>
                 ))}
               </div>
@@ -274,10 +332,10 @@ export default function Home() {
               <SectionHeading
                 title="Contact"
                 eyebrow="Get In Touch"
-                description="The main ways to reach me and view my work."
+                description="The main ways to reach me, view my work, and connect professionally."
               />
 
-              <div className="grid gap-4 sm:grid-cols-2">
+              <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
                 {portfolio.contactLinks.map((item) => (
                   <a
                     key={item.label}
